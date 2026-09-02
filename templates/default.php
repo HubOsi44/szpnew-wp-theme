@@ -1,7 +1,12 @@
 <?php
-if (!defined('ABSPATH')) exit;
+/**
+ * Template Name: Default
+ * Template Post Type: page
+ */
 
-/* Template Name: Default */
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 get_header();
 

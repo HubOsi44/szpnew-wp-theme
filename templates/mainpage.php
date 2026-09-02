@@ -1,7 +1,12 @@
 <?php
-if (!defined('ABSPATH')) exit;
+/**
+ * Template Name: Mainpage Szlachetna Paczka
+ * Template Post Type: page
+ */
 
-/* Template Name: Mainpage Szlachetna Paczka */
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 get_header();
 
