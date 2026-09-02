@@ -1,0 +1,49 @@
+name: 🚀 Deploy szpnew theme to FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build project
+        run: npm run build
+
+      - name: 📤 Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: biprotech.home.pl
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          # 📁 Wysyłamy cały motyw (nie tylko dist)
+          local-dir: ./
+          server-dir: /wp-content/themes/szpnew-wp-theme/
+          dangerous-clean-slate: false
+          exclude: |
+            **/node_modules/**
+            **/.git/**
+            **/.github/**
+            **/src/**
+            **/package*.json
+            **/vite.config.js
+            **/webpack.config.js
+            **/README.md
+            **/.gitignore
+            **/acf-json/**
