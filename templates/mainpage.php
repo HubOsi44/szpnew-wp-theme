@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-/* Template Name: Mainpage Biprotech */
+/* Template Name: Mainpage Szlachetna Paczka */
 
 get_header();
 
