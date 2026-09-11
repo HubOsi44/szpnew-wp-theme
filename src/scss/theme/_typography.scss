@@ -1,0 +1,124 @@
+$font-family-body: "Poppins", sans-serif;
+$font-family-heading: "Barlow Condensed", sans-serif;
+
+@mixin styles() {
+    :root {
+        --bs-font-sans-serif: #{$font-family-body};
+        --bs-body-font-family: #{$font-family-body};
+        --font-family-heading: #{$font-family-heading};
+        --font-family-body: #{$font-family-body};
+
+        --type-title-1: clamp(2.125rem, 4.2vw, 4rem); /* 34px - 64px */
+        --type-title-1-alt: clamp(2rem, 3.8vw, 3.5rem); /* 32px - 56px */
+        --type-title-2: clamp(1.5rem, 2.6vw, 2.25rem); /* 24px - 36px */
+        --type-title-3: clamp(1rem, 1.2vw, 1.25rem); /* 16px - 20px */
+        --type-body: clamp(0.9375rem, 1vw, 1rem); /* 15px - 16px */
+        --type-small: clamp(0.75rem, 0.8vw, 0.8125rem); /* 12px - 13px */
+    }
+
+    body {
+        font-family: var(--font-family-body);
+        font-size: var(--type-body);
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    b,
+    strong {
+        font-weight: 600;
+    }
+
+    h1,
+    .h1 {
+        font-family: var(--font-family-heading);
+        font-size: var(--type-title-1);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+    }
+
+    h2,
+    .h2 {
+        font-family: var(--font-family-body);
+        font-size: var(--type-title-2);
+        font-weight: 600;
+        line-height: 1.15;
+    }
+
+    h3,
+    .h3 {
+        font-family: var(--font-family-body);
+        font-size: var(--type-title-3);
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    h4,
+    h5,
+    h6,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: var(--font-family-body);
+        font-weight: 600;
+    }
+
+    p {
+        font-size: var(--type-body);
+        line-height: 1.6;
+    }
+
+    small,
+    .small {
+        font-size: var(--type-small);
+        line-height: 1.5;
+    }
+
+    .font-barlow,
+    .barlow-font,
+    .font-heading {
+        font-family: var(--font-family-heading);
+    }
+
+    .font-poppins,
+    .poppins-font {
+        font-family: var(--font-family-body);
+    }
+
+    .standard-title-1 {
+        font-size: var(--type-title-1);
+        line-height: 1.05;
+        font-weight: 600;
+    }
+
+    .standard-title-1-alt {
+        font-size: var(--type-title-1-alt);
+        line-height: 1.08;
+        font-weight: 600;
+    }
+
+    .standard-title-2 {
+        font-size: var(--type-title-2);
+        line-height: 1.15;
+        font-weight: 600;
+    }
+
+    .standard-title-3 {
+        font-size: var(--type-title-3);
+        line-height: 1.25;
+        font-weight: 600;
+    }
+
+    .standard-body {
+        font-size: var(--type-body);
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    .standard-small {
+        font-size: var(--type-small);
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+}

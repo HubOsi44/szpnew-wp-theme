@@ -48,16 +48,17 @@ function szpnew_enqueue_vite_assets()
     $theme_uri = get_template_directory_uri();
     $manifest_path = $theme_dir . '/dist/manifest.json';
     $entry = 'js/index.js';
+    $main_style_deps = [];
+
+    wp_enqueue_style(
+        'szpnew-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;900&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap',
+        [],
+        null
+    );
+    $main_style_deps[] = 'szpnew-google-fonts';
 
     // Optional static styles used by the theme.
-    if (file_exists($theme_dir . '/assets/css/inter-fonts.css')) {
-        wp_enqueue_style(
-            'szpnew-inter-fonts',
-            $theme_uri . '/assets/css/inter-fonts.css',
-            [],
-            filemtime($theme_dir . '/assets/css/inter-fonts.css') ?: szpnew_theme_version()
-        );
-    }
 
     if (file_exists($theme_dir . '/assets/css/vendor/remixicon.css')) {
         wp_enqueue_style(
@@ -87,7 +88,7 @@ function szpnew_enqueue_vite_assets()
             wp_enqueue_style(
                 'szpnew-main-' . $index,
                 $theme_uri . '/dist/' . ltrim((string) $css_file, '/'),
-                ['szpnew-inter-fonts'],
+                $main_style_deps,
                 null
             );
         }
@@ -103,6 +104,25 @@ function szpnew_enqueue_vite_assets()
     wp_script_add_data('szpnew-main', 'type', 'module');
 }
 add_action('wp_enqueue_scripts', 'szpnew_enqueue_vite_assets', 20);
+
+/**
+ * Prefetch Google Fonts origins.
+ */
+function szpnew_google_fonts_resource_hints($urls, $relation_type)
+{
+    if ($relation_type !== 'preconnect') {
+        return $urls;
+    }
+
+    $urls[] = 'https://fonts.googleapis.com';
+    $urls[] = [
+        'href' => 'https://fonts.gstatic.com',
+        'crossorigin' => 'anonymous',
+    ];
+
+    return $urls;
+}
+add_filter('wp_resource_hints', 'szpnew_google_fonts_resource_hints', 10, 2);
 
 /**
  * Register sidebars and footer widget areas.

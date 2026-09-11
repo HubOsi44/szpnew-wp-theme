@@ -24,7 +24,7 @@ import "swiper/css/pagination";
 // ======================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("🎨 Szlachetna Paczka theme JS loaded!");
+    console.log("Szlachetna Paczka theme JS loaded!");
 
 
     // --------------------------------------------------

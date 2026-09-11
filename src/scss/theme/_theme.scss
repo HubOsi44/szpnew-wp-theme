@@ -1,0 +1,9 @@
+@forward './tokens';
+@forward './typography' show $font-family-body, $font-family-heading;
+@use './tokens';
+@use './typography';
+
+@mixin styles() {
+    @include tokens.styles();
+    @include typography.styles();
+}

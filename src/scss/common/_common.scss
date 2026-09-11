@@ -1,0 +1,11 @@
+@mixin styles() {
+    .mainpage-section {
+        position: relative;
+    }
+
+    .mainpage-section-hero {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

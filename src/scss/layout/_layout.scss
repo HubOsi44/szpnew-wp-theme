@@ -1,0 +1,7 @@
+@use './menu' as menu;
+@use './footer' as footer;
+
+@mixin styles() {
+    @include menu.styles();
+    @include footer.styles();
+}

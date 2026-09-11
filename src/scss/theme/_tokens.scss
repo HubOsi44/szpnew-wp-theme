@@ -1,0 +1,11 @@
+@mixin styles() {
+    :root {
+        --red: #ed1c24;
+        --red-hover: #d4111e;
+        --red-alt: #f2554e;
+        --ink: #2a1715;
+        --ultramarine: #2855b6;
+        --ultramarine-hover: #1f449a;
+        --r-pill: 999px;
+    }
+}

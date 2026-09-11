@@ -1,0 +1,5 @@
+@use './buttons' as buttons;
+
+@mixin styles() {
+    @include buttons.styles();
+}

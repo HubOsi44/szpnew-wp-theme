@@ -2,6 +2,11 @@
    Bootstrap 5.3.8 - modular starter
 ====================================================== */
 
+@use "theme" as theme;
+@use "components" as components;
+@use "layout" as layout;
+@use "common" as common;
+
 /* Core */
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
@@ -30,8 +35,14 @@
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities/api";
 
+/* Custom theme layers rendered after Bootstrap */
+@include theme.styles();
+@include components.styles();
+@include layout.styles();
+@include common.styles();
+
+
 /* Optional theme layers (enable when ready)
-@forward "theme";
 @forward "components";
 @forward "layout";
 @forward "common";
