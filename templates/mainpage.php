@@ -20,9 +20,6 @@ get_header();
 
             if (have_rows('mainpage_flex')) {
                 $flex_field = 'mainpage_flex';
-            } elseif (have_rows('flex_sections')) {
-                // Backward-compatible fallback for older field naming.
-                $flex_field = 'flex_sections';
             }
             ?>
 
@@ -30,20 +27,20 @@ get_header();
                 <?php while (have_rows($flex_field)) : the_row(); ?>
                     <?php
                     $layout = get_row_layout();
+                    $show_section_field = get_sub_field_object('show_section');
+
+                    if ($show_section_field && empty($show_section_field['value'])) {
+                        continue;
+                    }
                     ?>
 
                     <?php if ($layout === 'hero') : ?>
                         <?php
-                        $background = get_sub_field('background');
+                        $background_url = get_sub_field('background');
                         $content = get_sub_field('cnt');
-                        $background_url = '';
 
-                        if (is_array($background) && !empty($background['url'])) {
-                            $background_url = (string) $background['url'];
-                        } elseif (is_numeric($background)) {
-                            $background_url = (string) wp_get_attachment_image_url((int) $background, 'full');
-                        } elseif (is_string($background) && $background !== '') {
-                            $background_url = $background;
+                        if (is_array($background_url)) {
+                            $background_url = $background_url['url'] ?? '';
                         }
                         ?>
                         <section
@@ -60,26 +57,52 @@ get_header();
                                 <?php endif; ?>
                             </div>
                         </section>
-                    <?php elseif (current_user_can('manage_options') && $layout) : ?>
-                        <section class="mainpage-section mainpage-section-missing">
-                            <div class="container py-4">
-                                <?php
-                                echo esc_html(
-                                    sprintf(
-                                        __('Brak obsługi layoutu w mainpage.php: %s', 'szpnew-wp-theme'),
-                                        $layout
-                                    )
-                                );
-                                ?>
+                    <?php elseif ($layout === 'licznik_rodzin') : ?>
+                        <?php
+                        $licznik_cnt = get_sub_field('licznik_cnt');
+                        ?>
+                        <section class="mainpage-section mainpage-section-licznik-rodzin">
+                            <div class="container py-5">
+                                <?php if ($licznik_cnt) : ?>
+                                    <div class="mainpage-section-content">
+                                        <?php echo wp_kses_post($licznik_cnt); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </section>
+                    <?php elseif ($layout === 'partnerzy_dla_paczki') : ?>
+                        <?php
+                        $partnerzy = get_sub_field('partnerzy');
+                        ?>
+                        <section class="mainpage-section mainpage-section-partnerzy-dla-paczki">
+                            <div class="container py-5">
+                                <?php if ($partnerzy) : ?>
+                                    <div class="mainpage-section-content">
+                                        <?php echo wp_kses_post($partnerzy); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </section>
+                    <?php elseif ($layout === 'boxy_zaangazowania') : ?>
+                        <?php
+                        $boxy = get_sub_field('boxy');
+                        ?>
+                        <section class="mainpage-section mainpage-section-boxy-zaangazowania">
+                            <div class="container py-5">
+                                <?php if ($boxy) : ?>
+                                    <div class="mainpage-section-content">
+                                        <?php echo wp_kses_post($boxy); ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </section>
                     <?php endif; ?>
                 <?php endwhile; ?>
-            <?php else : ?>
-                <div class="container py-4">
-                    <?php the_content(); ?>
-                </div>
             <?php endif; ?>
+
+            <div class="container py-4">
+                <?php the_content(); ?>
+            </div>
         <?php endwhile; ?>
     <?php endif; ?>
 </main>

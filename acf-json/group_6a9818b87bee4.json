@@ -69,6 +69,183 @@
                             "rows": 12,
                             "placeholder": "",
                             "new_lines": ""
+                        },
+                        {
+                            "key": "field_6aaba73b8ab2d",
+                            "label": "Pokaż sekcje",
+                            "name": "show_section",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6aaba133ebf4c": {
+                    "key": "layout_6aaba133ebf4c",
+                    "name": "licznik_rodzin",
+                    "label": "Licznik rodzin",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6aaba142ebf4e",
+                            "label": "Licznik cnt",
+                            "name": "licznik_cnt",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 15,
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_6aaba30855ca1",
+                            "label": "Pokaż sekcje",
+                            "name": "show_section",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6aababb9640c6": {
+                    "key": "layout_6aababb9640c6",
+                    "name": "partnerzy_dla_paczki",
+                    "label": "Partnerzy dla Paczki",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6aababc0640c8",
+                            "label": "Partnerzy",
+                            "name": "partnerzy",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": "",
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_6aababd9640c9",
+                            "label": "Pokaż sekcje",
+                            "name": "show_section",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6aabcd4ab4099": {
+                    "key": "layout_6aabcd4ab4099",
+                    "name": "boxy_zaangazowania",
+                    "label": "Boxy zaangażowania",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6aabcdcfb409b",
+                            "label": "Boxy",
+                            "name": "boxy",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 12,
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_6aabce06b409c",
+                            "label": "Pokaż sekcje",
+                            "name": "show_section",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -101,5 +278,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789120152
+    "modified": 1789644317
 }

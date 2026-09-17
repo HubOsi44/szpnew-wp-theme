@@ -6,11 +6,11 @@
         gap: 9px;
         font-family: var(--bs-body-font-family, "Poppins", sans-serif);
         font-weight: 600;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1;
         white-space: nowrap;
         border-radius: var(--r-pill);
-        padding: 11px 22px;
+        padding: 13px 26px;
         transition: 0.25s ease;
     }
 
@@ -130,8 +130,13 @@
     }
 
     .btn.btn-sm {
-        padding: 6px 14px;
+        padding: 8px 16px;
         font-size: 13px;
+    }
+
+    .btn.btn-lg {
+        padding: 18px 36px;
+        font-size: 17px;
     }
 
     .btn:focus,
