@@ -1,0 +1,102 @@
+@mixin styles() {
+    /* =========================
+       Variant 1: pill tabs
+       Usage: .nav.nav-pills.nav-pills-wariant-1
+    ========================== */
+    .nav.nav-pills.nav-pills-wariant-1 {
+        gap: 6px;
+        padding: 6px;
+        border-radius: var(--r-pill);
+        background: #f0efee;
+        width: max-content;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .nav.nav-pills.nav-pills-wariant-1 .nav-link {
+        border-radius: var(--r-pill);
+        color: rgba(42, 23, 21, 0.58);
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px 18px;
+        border: 1px solid transparent;
+    }
+
+    .nav.nav-pills.nav-pills-wariant-1 .nav-link:hover,
+    .nav.nav-pills.nav-pills-wariant-1 .nav-link:focus-visible {
+        color: var(--ink);
+    }
+
+    .nav.nav-pills.nav-pills-wariant-1 .nav-link.active,
+    .nav.nav-pills.nav-pills-wariant-1 .show > .nav-link {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: #fff;
+    }
+
+    /* =========================
+       Variant 2: underline tabs
+       Usage: .nav.nav-tabs.nav-tabs-wariant-2
+    ========================== */
+    .nav.nav-tabs.nav-tabs-wariant-2 {
+        border-bottom: 1px solid #e3dedc;
+        gap: 8px;
+    }
+
+    .nav.nav-tabs.nav-tabs-wariant-2 .nav-link {
+        border: 0;
+        border-bottom: 2px solid transparent;
+        border-radius: 0;
+        color: rgba(42, 23, 21, 0.58);
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px 2px;
+        margin-bottom: -1px;
+        background: transparent;
+    }
+
+    .nav.nav-tabs.nav-tabs-wariant-2 .nav-link:hover,
+    .nav.nav-tabs.nav-tabs-wariant-2 .nav-link:focus-visible {
+        color: var(--ink);
+    }
+
+    .nav.nav-tabs.nav-tabs-wariant-2 .nav-link.active,
+    .nav.nav-tabs.nav-tabs-wariant-2 .show > .nav-link {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
+        font-weight: 700;
+        background: transparent;
+    }
+
+    /* =========================
+       Variant 3: segment/chips
+       Usage: .nav.nav-pills.nav-pills-wariant-3
+    ========================== */
+    .nav.nav-pills.nav-pills-wariant-3 {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .nav.nav-pills.nav-pills-wariant-3 .nav-link {
+        border-radius: var(--r-pill);
+        border: 1px solid #e1dcda;
+        background: #fff;
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 16px;
+        padding: 9px 18px;
+        line-height: 1.1;
+    }
+
+    .nav.nav-pills.nav-pills-wariant-3 .nav-link:hover,
+    .nav.nav-pills.nav-pills-wariant-3 .nav-link:focus-visible {
+        border-color: var(--ink);
+    }
+
+    .nav.nav-pills.nav-pills-wariant-3 .nav-link.active,
+    .nav.nav-pills.nav-pills-wariant-3 .show > .nav-link {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: #fff;
+    }
+}

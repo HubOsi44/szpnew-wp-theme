@@ -7,8 +7,9 @@ import "../scss/style.scss";
 // 🧱 BOOTSTRAP – tylko to, co potrzebne
 // ======================================================
 import 'bootstrap/js/dist/dropdown';
-import Collapse from 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/modal';
+import 'bootstrap/js/dist/tab';
 
 // ======================================================
 // 🔥 SWIPER

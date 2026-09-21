@@ -40,6 +40,59 @@ function szpnew_theme_version()
 }
 
 /**
+ * Estimate reading time in minutes.
+ * Uses Yoast value when available, then falls back to local word count.
+ */
+function szpnew_get_reading_time_minutes($post_id = null)
+{
+    $post = get_post($post_id);
+    if (!$post instanceof WP_Post) {
+        return 0;
+    }
+
+    if (function_exists('YoastSEO')) {
+        $yoast_meta = YoastSEO()->meta->for_post($post->ID);
+        if ($yoast_meta && isset($yoast_meta->estimated_reading_time_minutes)) {
+            $yoast_minutes = (int) $yoast_meta->estimated_reading_time_minutes;
+            if ($yoast_minutes > 0) {
+                return $yoast_minutes;
+            }
+        }
+    }
+
+    $content = wp_strip_all_tags(strip_shortcodes((string) $post->post_content));
+    preg_match_all('/\p{L}+/u', $content, $matches);
+    $word_count = isset($matches[0]) ? count($matches[0]) : 0;
+
+    if ($word_count === 0) {
+        return 0;
+    }
+
+    $words_per_minute = (int) apply_filters('szpnew_reading_words_per_minute', 180);
+    if ($words_per_minute <= 0) {
+        $words_per_minute = 180;
+    }
+
+    return max(1, (int) ceil($word_count / $words_per_minute));
+}
+
+/**
+ * Return localized reading time label.
+ */
+function szpnew_get_reading_time_label($post_id = null)
+{
+    $minutes = szpnew_get_reading_time_minutes($post_id);
+    if ($minutes <= 0) {
+        return '';
+    }
+
+    return sprintf(
+        _n('%d min czytania', '%d min czytania', $minutes, 'szpnew-wp-theme'),
+        $minutes
+    );
+}
+
+/**
  * Enqueue assets built by Vite (dist/manifest.json).
  */
 function szpnew_enqueue_vite_assets()
