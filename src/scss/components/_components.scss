@@ -1,5 +1,7 @@
 @use './buttons' as buttons;
+@use './campaign-widget' as campaign_widget;
 
 @mixin styles() {
     @include buttons.styles();
+    @include campaign_widget.styles();
 }

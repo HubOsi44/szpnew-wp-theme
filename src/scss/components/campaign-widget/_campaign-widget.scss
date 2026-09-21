@@ -1,0 +1,16 @@
+@mixin styles() {
+    /* Campaign widget mount point rendered from sidebar: layer-campaign */
+    .layer-campaign-widget {
+        margin: 0;
+    }
+
+    .layer-campaign-widget .widget-title {
+        display: none;
+    }
+
+    /* Keep fixed bars above content/navigation when using Bootstrap fixed classes */
+    .layer-campaign-widget .fixed-top,
+    .layer-campaign-widget .fixed-bottom {
+        z-index: 1080;
+    }
+}

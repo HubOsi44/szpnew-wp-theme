@@ -58,17 +58,6 @@ function szpnew_enqueue_vite_assets()
     );
     $main_style_deps[] = 'szpnew-google-fonts';
 
-    // Optional static styles used by the theme.
-
-    if (file_exists($theme_dir . '/assets/css/vendor/remixicon.css')) {
-        wp_enqueue_style(
-            'szpnew-remixicon',
-            $theme_uri . '/assets/css/vendor/remixicon.css',
-            [],
-            szpnew_theme_version()
-        );
-    }
-
     if (!file_exists($manifest_path)) {
         // Safe fallback so theme still has base styles if build is missing.
         wp_enqueue_style('szpnew-style-fallback', get_stylesheet_uri(), [], szpnew_theme_version());
@@ -157,6 +146,17 @@ function szpnew_register_widget_areas()
             'after_title'   => '</h4>',
         ]);
     }
+
+    // Global campaign widget layer rendered at the very end of footer.
+    register_sidebar([
+        'name'          => __('Layer Campaigne', 'szpnew-wp-theme'),
+        'id'            => 'layer-campaign',
+        'description'   => __('Global campaign bar/widget for all pages (e.g. fixed bottom banner).', 'szpnew-wp-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s layer-campaign-widget">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ]);
 }
 add_action('widgets_init', 'szpnew_register_widget_areas');
 
