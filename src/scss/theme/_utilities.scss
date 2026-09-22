@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "./tokens";
+
+$color-token-names: map.keys(tokens.$color-tokens);
+
+@mixin styles() {
+    @each $token-name in $color-token-names {
+        .bg-#{$token-name} {
+            background-color: var(--#{$token-name}) !important;
+        }
+
+        .text-#{$token-name} {
+            color: var(--#{$token-name}) !important;
+        }
+
+        .border-#{$token-name} {
+            border-color: var(--#{$token-name}) !important;
+        }
+    }
+
+}

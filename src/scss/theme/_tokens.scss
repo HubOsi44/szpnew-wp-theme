@@ -1,11 +1,27 @@
+$color-tokens: (
+    "red": #ed1c24,
+    "red-hover": #d4111e,
+    "red-alt": #f2554e,
+    "ink": #2a1715,
+    "ultramarine": #2855b6,
+    "ultramarine-hover": #1f449a,
+    "ultramarine-mid": #4a7ad4,
+    "ultramarine-light": #edf1fb,
+    "salmon": #ffbe9f,
+    "salmon-light": #fff2f1,
+    "rose-50": #fff5f5,
+    "rose-100": #ffb3b5,
+    "stone-light": #f5f4f1,
+    "stone-mid": #ede9e4,
+    "stone-dark": #d9d5ce,
+    "white": #ffffff
+);
+
 @mixin styles() {
     :root {
-        --red: #ed1c24;
-        --red-hover: #d4111e;
-        --red-alt: #f2554e;
-        --ink: #2a1715;
-        --ultramarine: #2855b6;
-        --ultramarine-hover: #1f449a;
+        @each $token-name, $token-value in $color-tokens {
+            --#{$token-name}: #{$token-value};
+        }
         --r-pill: 999px;
     }
 }

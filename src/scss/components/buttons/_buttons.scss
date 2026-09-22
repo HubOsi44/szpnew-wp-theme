@@ -21,15 +21,17 @@
 
     .btn.btn-with-arrow::after {
         content: "\2192";
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         line-height: 1;
-        transform: translateX(0);
+        transform: translate(0, -1px);
         transition: transform 0.2s ease;
     }
 
     .btn.btn-with-arrow:hover::after,
     .btn.btn-with-arrow:focus-visible::after {
-        transform: translateX(3px);
+        transform: translate(3px, -1px);
     }
 
     .btn.btn-primary {
@@ -80,6 +82,60 @@
         --bs-btn-disabled-bg: #fff;
         --bs-btn-disabled-border-color: #b5a7a4;
         --bs-btn-border-width: 2px;
+    }
+
+    /* Variants for dark/red backgrounds from design system */
+    .buttons-on-red .btn.btn-primary,
+    .btn.btn-primary.btn-on-red {
+        --bs-btn-color: var(--red);
+        --bs-btn-bg: #fff;
+        --bs-btn-border-color: #fff;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: transparent;
+        --bs-btn-hover-border-color: #fff;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: rgba(255, 255, 255, 0.12);
+        --bs-btn-active-border-color: #fff;
+        --bs-btn-disabled-color: var(--red);
+        --bs-btn-disabled-bg: #fff;
+        --bs-btn-disabled-border-color: #fff;
+        box-shadow: none;
+    }
+
+    .buttons-on-red .btn.btn-primary:hover,
+    .buttons-on-red .btn.btn-primary:focus-visible,
+    .btn.btn-primary.btn-on-red:hover,
+    .btn.btn-primary.btn-on-red:focus-visible {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .buttons-on-red .btn.btn-secondary,
+    .btn.btn-secondary.btn-on-red {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: transparent;
+        --bs-btn-border-color: #fff;
+        --bs-btn-hover-color: var(--red);
+        --bs-btn-hover-bg: #fff;
+        --bs-btn-hover-border-color: #fff;
+        --bs-btn-active-color: var(--red);
+        --bs-btn-active-bg: #fff;
+        --bs-btn-active-border-color: #fff;
+        --bs-btn-disabled-color: rgba(255, 255, 255, 0.65);
+        --bs-btn-disabled-bg: transparent;
+        --bs-btn-disabled-border-color: rgba(255, 255, 255, 0.65);
+    }
+
+    .buttons-on-red .btn-ghost,
+    .btn-ghost.btn-on-red {
+        color: #fff;
+        text-decoration-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .buttons-on-red .btn-ghost:hover,
+    .btn-ghost.btn-on-red:hover {
+        color: #fff;
+        text-decoration-color: #fff;
     }
 
     .btn.btn-ultra {
