@@ -1,0 +1,65 @@
+/* Editor-only link visibility (Classic + Gutenberg) */
+.editor-styles-wrapper a,
+.editor-styles-wrapper .wp-block a,
+.block-editor-rich-text__editable a,
+.mce-content-body a {
+    color: #ed1c24 !important;
+    text-decoration-line: underline !important;
+    text-decoration-style: solid !important;
+    text-decoration-thickness: 2px !important;
+    text-underline-offset: 2px !important;
+    cursor: pointer !important;
+}
+
+.editor-styles-wrapper a:hover,
+.editor-styles-wrapper .wp-block a:hover,
+.block-editor-rich-text__editable a:hover,
+.mce-content-body a:hover {
+    color: #d4111e !important;
+    text-decoration-color: #d4111e !important;
+}
+
+/* Visual marker for places where HTML/CSS code was added */
+.editor-styles-wrapper code,
+.editor-styles-wrapper pre,
+.mce-content-body code,
+.mce-content-body pre {
+    background: #fff5f5 !important;
+    border: 1px solid #ffb3b5 !important;
+    border-radius: 6px;
+}
+
+.editor-styles-wrapper pre,
+.mce-content-body pre {
+    padding: 10px 12px !important;
+}
+
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/code"],
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/preformatted"],
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/html"] {
+    position: relative;
+    outline: 2px dashed #ed1c24 !important;
+    outline-offset: 3px;
+    border-radius: 8px;
+    background: #fff5f5 !important;
+}
+
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/code"]::before,
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/preformatted"]::before,
+.editor-styles-wrapper .block-editor-block-list__block[data-type="core/html"]::before {
+    content: "CSS/HTML";
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #ed1c24;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    z-index: 2;
+    pointer-events: none;
+}

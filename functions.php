@@ -13,6 +13,8 @@ function szpnew_theme_setup()
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('automatic-feed-links');
+    add_theme_support('editor-styles');
+    add_editor_style('editor-style.css');
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script']);
     add_theme_support('custom-logo', [
         'height'      => 120,
@@ -146,6 +148,20 @@ function szpnew_enqueue_vite_assets()
     wp_script_add_data('szpnew-main', 'type', 'module');
 }
 add_action('wp_enqueue_scripts', 'szpnew_enqueue_vite_assets', 20);
+
+/**
+ * Ensure editor helper styles are loaded in Gutenberg.
+ */
+function szpnew_enqueue_block_editor_styles()
+{
+    wp_enqueue_style(
+        'szpnew-editor-style',
+        get_template_directory_uri() . '/editor-style.css',
+        [],
+        szpnew_theme_version()
+    );
+}
+add_action('enqueue_block_editor_assets', 'szpnew_enqueue_block_editor_styles');
 
 /**
  * Prefetch Google Fonts origins.
